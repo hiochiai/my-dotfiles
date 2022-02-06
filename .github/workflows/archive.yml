@@ -1,0 +1,23 @@
+name: Archive
+
+on:
+  push:
+#    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - shell: bash
+        run: |
+          tar czf dotfiles.tgz bin Library .gitconfig .gitmessage .zshrc setup.sh
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dotfiles
+          path: dotfiles.tgz
+          retention-days: 1
