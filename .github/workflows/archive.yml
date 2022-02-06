@@ -16,7 +16,7 @@ jobs:
       
       - shell: bash
         run: |
-          tar czf dotfiles.tgz bin Library .gitconfig .gitmessage .zshrc setup.sh
+          tar czf dotfiles.tar.gz bin Library .gitconfig .gitmessage .zshrc setup.sh
 
       - name: 'Upload'
         uses: actions/upload-artifact@v2
