@@ -2,7 +2,8 @@ name: Archive
 
 on:
   push:
-#    branches: [ main ]
+    tags:
+      - v.*
 
   workflow_dispatch:
 
@@ -20,6 +21,6 @@ jobs:
       - name: 'Upload'
         uses: actions/upload-artifact@v2
         with:
-          name: dotfiles
-          path: dotfiles.tgz
+          name: dotfiles.tar.gz
+          path: dotfiles.tar.gz
           retention-days: 1
