@@ -9,8 +9,8 @@ alias gd="git diff"
 
 # golang
 export GOPATH=$HOME/Projects/go
-export PATH=$PATH:$GOPATH/bin:~/bin/my-tools
+export PATH=$PATH:$GOPATH/bin
 
 # gcloud
-if [ -f '~/bin/google-cloud-sdk/path.zsh.inc' ]; then . '~/bin/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '~/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '~/bin/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f ~/bin/google-cloud-sdk/path.zsh.inc ]; then . ~/bin/google-cloud-sdk/path.zsh.inc; fi
+if [ -f ~/bin/google-cloud-sdk/completion.zsh.inc ]; then . ~/bin/google-cloud-sdk/completion.zsh.inc; fi
