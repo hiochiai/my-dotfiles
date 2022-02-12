@@ -11,6 +11,8 @@ alias dkc="docker-compose"
 alias dkb="docker-bind"
 alias dkl="docker-clean"
 
+alias asciinema="docker run -v $(pwd):/app -w /app --entrypoint /bin/bash --rm -it asciinema/asciinema"
+
 # golang
 export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$GOPATH/bin
