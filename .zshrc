@@ -9,7 +9,7 @@ alias gd="git diff"
 
 alias dkc="docker-compose"
 alias dkb="docker-bind"
-alias dkl="docker-clear"
+alias dkl="docker-clean"
 
 # golang
 export GOPATH=$HOME/Projects/go
