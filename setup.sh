@@ -1,8 +1,13 @@
 #!/usr/bin/env bash -eu
 
+DOTFILES=$(cat << EOF
+REPLACE_ME_TO_BASE64_TAR_GZ
+EOF
+)
+
 work_dir=$(mktemp -d)
 
-tail -n +$[ $(grep -n "^DOTFILES" $0|cut -d ":" -f 1) + 1 ] $0 | base64 -d | tar -C ${work_dir} -xz
+echo ${DOTFILES} | base64 -d | tar -C ${work_dir} -xz
 
 cd ${work_dir}
 
@@ -45,7 +50,4 @@ if ! git config user.email 1>/dev/null; then
   git config --global user.email "${git_user_email}"
 fi
 
-echo "done"
-exit
-
-DOTFILES
+echo "Done"

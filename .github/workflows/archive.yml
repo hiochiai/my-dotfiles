@@ -17,7 +17,7 @@ jobs:
       - shell: bash
         run: |
           cp -a setup.sh setup-dotfiles.sh
-          tar cz bin Library .gitconfig .gitmessage .zshrc | base64 >>setup-dotfiles.sh
+          sed -i "" -e "s@REPLACE_ME_TO_BASE64_TAR_GZ@$(tar cz bin Library .gitconfig .gitmessage .zshrc | base64)@" setup-dotfiles.sh
 
       - name: 'Upload'
         uses: actions/upload-artifact@v2
