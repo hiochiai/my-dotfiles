@@ -1,5 +1,6 @@
 #!/usr/bin/env bash -eu
 
+OVERWRITE=${OVERWRITE:-false}
 DOTFILES=$(cat << EOF
 REPLACE_ME_TO_BASE64_TAR_GZ
 EOF
@@ -23,21 +24,14 @@ for file in $(find . -type f); do
     continue
   fi
 
-  while true; do
-    read -p "Overwrite '$HOME/${file:2}'? ( [Y]es / [n]o / show [d]iffrence ): " input
-    case "$input" in
-      [Y])
-        mkdir -p "$HOME/$(dirname "${file}")" && cp -a "${file}" "$HOME/${file}"
-        ;;
-      [d])
-        diff "${file}" "$HOME/${file}" || :
-        continue
-        ;;
-      *)
-        ;;
-    esac
-    break
-  done
+  case "${OVERWRITE}" in
+    true)
+      mkdir -p "$HOME/$(dirname "${file}")" && cp -a "${file}" "$HOME/${file}"
+      ;;
+    *)
+      diff "${file}" "$HOME/${file}" || :
+      ;;
+  esac
 done
 
 if ! git config user.name 1>/dev/null; then
