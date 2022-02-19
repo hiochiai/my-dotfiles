@@ -16,11 +16,12 @@ jobs:
       
       - shell: bash
         run: |
-          tar czf dotfiles.tar.gz bin Library .gitconfig .gitmessage .zshrc setup.sh
+          cp -a setup.sh setup-dotfiles.sh
+          tar cz bin Library .gitconfig .gitmessage .zshrc | base64 >>setup-dotfiles.sh
 
       - name: 'Upload'
         uses: actions/upload-artifact@v2
         with:
-          name: dotfiles.tar.gz
-          path: dotfiles.tar.gz
+          name: setup-dotfiles.sh
+          path: setup-dotfiles.sh
           retention-days: 1

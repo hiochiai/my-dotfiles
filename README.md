@@ -6,7 +6,7 @@ My dotfiles for macOS
 1. install dotfiles
 
 ```
-cd && curl -sS -L 'https://github.com/hiochiai/my-dotfiles/releases/latest/download/dotfiles.tar.gz' | tar xz && ./setup.sh
+curl --proto '=https' --tlsv1.2 -sS -L 'https://github.com/hiochiai/my-dotfiles/releases/latest/download/setup-dotfiles.sh' | bash
 ```
 
 2. Setup for Automator
