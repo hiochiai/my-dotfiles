@@ -29,6 +29,8 @@ for file in $(find . -type f); do
       mkdir -p "$HOME/$(dirname "${file}")" && cp -a "${file}" "$HOME/${file}"
       ;;
     *)
+      echo "Skip to overwrite $HOME/${file}."
+      echo "Difference:"
       diff "${file}" "$HOME/${file}" || :
       ;;
   esac
