@@ -10,7 +10,7 @@
     ]
   },
   "[rust]": {
-    "editor.defaultFormatter": "statiolake.vscode-rustfmt"
+    "editor.defaultFormatter": "rust-lang.rust"
   },
   "[dockerfile]": {
     "editor.formatOnSave": false
